@@ -1,0 +1,74 @@
+@import url('/static/SingleDay-Regular.ttf');
+@import url('/static/Roboto-Regular.ttf');
+
+:root {
+    --page-bg: #e9ecef;
+    --font-color: #495057;
+    --secondary-bg: #ced4da;
+}
+
+html {
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--page-bg);
+    margin: 0;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 10px;
+}
+
+
+.container {
+    width: 20vw;
+}
+
+h1 {
+    font-family: 'SingleDay-Regular', cursive;
+    text-align: center;
+}
+
+.container span {
+    color: var(--font-color);
+}
+
+input {
+    width: 100%;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--font-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    outline: none;
+}
+
+button {
+    border: 0;
+    background-color: var(--secondary-bg);
+    color: var(--font-color);
+    width: 100%;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all .3s ease;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--font-color);
+    color: var(--secondary-bg);
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 95vw;
+    }
+}
