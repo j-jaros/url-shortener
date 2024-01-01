@@ -1,6 +1,9 @@
+import os
 import re
+import signal
 import string
 import threading
+import time
 
 import flask
 import waitress
@@ -61,18 +64,36 @@ def get_cursor():
     return connection.cursor(pymysql.cursors.DictCursor)
 
 
+connection = None
+
+
 def connect_to_database():
     global connection
-    connection = pymysql.connect(
-        host='127.0.0.1',
-        port=3306,
-        database='shortener',
-        autocommit=True,
-        user='root',
-        password=''
-    )
+    try:
+        connection = pymysql.connect(
+            host='127.0.0.1',
+            port=3306,
+            database='shortener',
+            autocommit=True,
+            user='root',
+            password=''
+        )
+    except Exception as ex:
+        print(
+            "\033[0;31mCouldnt connect to database. Without database connection it is impossible to use core features. Check database "
+            f"connection and restart the program.\nError: {ex}\033[0m")
+        connection = -1
 
 
 if __name__ == "__main__":
+    print("Starting up")
     threading.Thread(target=connect_to_database).start()
+    while True:
+        time.sleep(0.5)
+        if connection == -1:
+            os.kill(os.getpid(), signal.SIGINT)
+        elif connection is not None:
+            break
+
+    print("Database connection succeded! App server starting...")
     app.run(host='0.0.0.0', port=80)

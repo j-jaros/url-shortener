@@ -27,6 +27,20 @@ body {
     bottom: 10px;
 }
 
+.container * {
+    display: block;
+}
+
+.container a {
+    display: none;
+    text-align: center;
+    text-decoration: underline black;
+    cursor: pointer;
+}
+
+.container a.visible {
+    display: block;
+}
 
 .container {
     width: 20vw;
@@ -59,16 +73,41 @@ button {
     border-radius: 10px;
     padding: 10px;
     transition: all .3s ease;
+    cursor: not-allowed;
+}
+
+button.ready {
+    background-color: #0000e7;
+    color: white;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: var(--font-color);
-    color: var(--secondary-bg);
+button.ready:hover {
+        background-color: #3c3cff;
 }
 
 @media only screen and (max-width: 768px) {
     .container {
         width: 95vw;
     }
+}
+
+.result-holder {
+    display: none;
+    opacity: 0;
+    transition: opacity .5s ease;
+    text-align: center;
+}
+
+.result-holder h3 {
+    cursor: pointer;
+}
+
+.result-holder span {
+    font-style: italic;
+}
+
+.result-holder.visible {
+    display: block;
+    opacity: 1;
 }
