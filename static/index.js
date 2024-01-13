@@ -96,7 +96,7 @@ process_button.addEventListener('click', process_url)
 document.querySelector('.result-holder h3').addEventListener('click', e => {
     e.preventDefault()
     navigator.clipboard.writeText(e.target.textContent)
-    alert("Link copied!")
+    display_message("Link copied!", 'green', 5)
 })
 
 shorten_again.addEventListener('click', reset)

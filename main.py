@@ -10,6 +10,18 @@ import waitress
 import pymysql
 import random
 
+HOST_ADDRESS = "127.0.0.1"
+HOST_PORT = 80
+
+DB_CREDENTIALS = {
+    "host": '127.0.0.1',  # database ip address
+    "port": 3306,  # database port
+    "database": 'shortener',  # database name
+    "user": 'root',  # database user
+    "password": '',  # database user password
+    "autocommit": True
+}
+
 app = flask.Flask(__name__)
 
 
@@ -71,12 +83,7 @@ def connect_to_database():
     global connection
     try:
         connection = pymysql.connect(
-            host='127.0.0.1',
-            port=3306,
-            database='shortener',
-            autocommit=True,
-            user='root',
-            password=''
+            **DB_CREDENTIALS
         )
     except Exception as ex:
         print(
@@ -96,4 +103,4 @@ if __name__ == "__main__":
             break
 
     print("Database connection succeded! App server starting...")
-    app.run(host='0.0.0.0', port=80)
+    app.run(host=HOST_ADDRESS, port=HOST_PORT)
