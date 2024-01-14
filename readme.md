@@ -40,14 +40,14 @@ Shortener on VPS.
 
 ### Installation
 
-[!IMPORTANT]
+>[!IMPORTANT]
 > The system on which I will host URL Shortener is Ubuntu server 22.04 - I cannot guarantee that all the
 > commands/solutions given below will work on other systems or versions of Ubuntu. Moreover, the following guide assumes
 > that this is a fresh installation of the Ubuntu server and it does not have any services installed!
 
 **1. Before we do anything remember to update all preinstalled packages!**
 _Greetings, Mr. Dawid! ;)_
-[!CAUTION]
+>[!CAUTION]
 
 > Remember that if any of the following commands returns an error during execution, you must first solve it and only
 > then continue!
@@ -104,7 +104,7 @@ mysql -u root -p
 ```
 
 Create database, change the authentication type of root user and exit the shell.
-[!WARNING]
+>[!WARNING]
 > Remember! What I present in the instructions below is EXAMPLE data! If you are an advanced user, please configure all
 > services according to security standards. What I present below is the simplest solution that will allow you to run URL
 > Shortener!
@@ -133,7 +133,7 @@ mysql -u root -p shortener < shortener.sql
 8. Press `Save`
 
 **8. Install and configure proxy server**
-[!IMPORTANT]
+>[!IMPORTANT]
 > I base this example on a server purchased on mikr.us. Mikr.us does not provide public IPv4 addresses, so I have to use
 > an application that will allow me to redirect IPv6 communication to IPv4! This point is not required if you have
 > public
@@ -184,7 +184,7 @@ http {
 ```
 
 Check the config and restart the service
-[!WARNING]
+>[!WARNING]
 > Remember! If `nginx -t` gives an error, check the configuration file and correct the errors!
 
 ```console
