@@ -48,7 +48,6 @@ Shortener on VPS.
 **1. Before we do anything remember to update all preinstalled packages!**
 _Greetings, Mr. Dawid! ;)_
 >[!CAUTION]
-
 > Remember that if any of the following commands returns an error during execution, you must first solve it and only
 > then continue!
 
