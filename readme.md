@@ -69,7 +69,7 @@ When the command finishes, restart the system
 reboot
 ```
 
-**2. Create a folder where the Shortener URL will be located**
+**2. Create a folder where the URL Shortener will be located**
 
 ```console
 mkdir /shortener
@@ -121,22 +121,22 @@ Import the database file (Remember! We are still in /shortener directory)
 mysql -u root -p shortener < shortener.sql
 ```
 
+>[!IMPORTANT]
+> I base this example on a server purchased on mikr.us. Mikr.us does not provide public IPv4 addresses, so I have to use
+> solutions that will allow me to redirect IPv6 communication to IPv4! Points 7 & 8 are not required if you have
+> public IPv4 or host it on your local network with IPv4 addressing
+
 **7. Add DNS records in Cloudflare** 
 1. Login into your [cloudflare](https://dash.cloudflare.com/login) dashboard.
 2. Click on the domain for which you want to update the records
 3. Go to `DNS` tab
 4. Press `Add record`
 5. Set type to `AAAA` (IPv6)
-6. In `name`, enter the subdomain from which you want to connect to the Shortener URL (or use @ to select the main domain)
+6. In `name`, enter the subdomain from which you want to connect to the URL Shortener (or use @ to select the main domain)
 7. In `IPv6 address` enter the ipv6 address of your server
 8. Press `Save`
 
 **8. Install and configure proxy server**
->[!IMPORTANT]
-> I base this example on a server purchased on mikr.us. Mikr.us does not provide public IPv4 addresses, so I have to use
-> an application that will allow me to redirect IPv6 communication to IPv4! This point is not required if you have
-> public
-> IPv4 or host it on your local network with IPv4 addressing
 
 Install nginx
 
